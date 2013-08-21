@@ -7,6 +7,8 @@ use Doctrine\Common\Annotations\FileCacheReader;
 use Hateoas\Configuration\Metadata\Driver\AnnotationDriver;
 use Hateoas\Configuration\Metadata\Driver\YamlDriver;
 use Hateoas\Configuration\RelationsRepository;
+use Hateoas\Factory\CollectionLinksFactory;
+use Hateoas\Factory\CollectionResourceFactory;
 use Hateoas\Factory\EmbedsFactory;
 use Hateoas\Factory\LinkFactory;
 use Hateoas\Factory\LinksFactory;
@@ -47,6 +49,7 @@ class HateoasBuilder
 
     private $handlerSet = false;
     private $handlerManager;
+    private $collectionResourceFactory;
 
     private $xmlSerializer;
     private $jsonSerializer;
@@ -127,7 +130,7 @@ class HateoasBuilder
             }
         }
 
-        return new Hateoas($jmsSerializer, $relationsRepository, $this->handlerManager);
+        return new Hateoas($jmsSerializer, $relationsRepository, $this->handlerManager, $this->collectionResourceFactory);
     }
 
     public function setXmlSerializer(XmlSerializerInterface $xmlSerializer)
@@ -162,6 +165,9 @@ class HateoasBuilder
     public function setRouteFactory(RouteFactoryInterface $routeFactory)
     {
         $this->routeFactory = $routeFactory;
+        $this->collectionResourceFactory = new CollectionResourceFactory(
+            new CollectionLinksFactory($this->routeFactory)
+        );
 
         return $this;
     }

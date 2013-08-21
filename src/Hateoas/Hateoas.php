@@ -3,6 +3,7 @@
 namespace Hateoas;
 
 use Hateoas\Configuration\RelationsRepository;
+use Hateoas\Factory\CollectionResourceFactory;
 use Hateoas\Handler\HandlerManager;
 use JMS\Serializer\DeserializationContext;
 use JMS\Serializer\SerializationContext;
@@ -29,15 +30,27 @@ class Hateoas implements SerializerInterface
     private $handlerManager;
 
     /**
-     * @param SerializerInterface $serializer
-     * @param RelationsRepository $RelationsRepository
-     * @param HandlerManager      $handlerManager
+     * @var CollectionResourceFactory
      */
-    public function __construct(SerializerInterface $serializer, RelationsRepository $relationsRepository, HandlerManager $handlerManager)
+    private $collectionResourceFactory;
+
+    /**
+     * @param SerializerInterface       $serializer
+     * @param RelationsRepository       $RelationsRepository
+     * @param HandlerManager            $handlerManager
+     * @param CollectionResourceFactory $collectionResourceFactory
+     */
+    public function __construct(
+        SerializerInterface $serializer,
+        RelationsRepository $relationsRepository,
+        HandlerManager $handlerManager,
+        CollectionResourceFactory $collectionResourceFactory = null
+    )
     {
-        $this->serializer          = $serializer;
-        $this->relationsRepository = $relationsRepository;
-        $this->handlerManager      = $handlerManager;
+        $this->serializer                = $serializer;
+        $this->relationsRepository       = $relationsRepository;
+        $this->handlerManager            = $handlerManager;
+        $this->collectionResourceFactory = $collectionResourceFactory;
     }
 
     /**
@@ -78,5 +91,13 @@ class Hateoas implements SerializerInterface
     public function getSerializer()
     {
         return $this->serializer;
+    }
+
+    /**
+     * @return CollectionResourceFactory
+     */
+    public function getCollectionResourceFactory()
+    {
+        return $this->collectionResourceFactory;
     }
 }
