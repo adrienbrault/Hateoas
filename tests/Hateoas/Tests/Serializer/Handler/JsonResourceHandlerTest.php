@@ -1,11 +1,11 @@
 <?php
 
-namespace tests\Hateoas\Serializer\Handler;
+namespace Hateoas\Tests\Serializer\Handler;
 
-use tests\TestCase;
+use Hateoas\Tests\TestCase;
 use Hateoas\Serializer\Handler\JsonResourceHandler as TestedJsonResourceHandler;
 
-class JsonResourceHandler extends TestCase
+class JsonResourceHandlerTest extends TestCase
 {
     public function testSerializeToJson()
     {

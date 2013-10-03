@@ -1,6 +1,6 @@
 <?php
 
-namespace tests\fixtures;
+namespace Hateoas\Tests\fixtures;
 
 class EmptyClass
 {

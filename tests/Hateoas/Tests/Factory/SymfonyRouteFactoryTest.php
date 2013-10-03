@@ -1,11 +1,11 @@
 <?php
 
-namespace tests\Hateoas\Factory;
+namespace Hateoas\Tests\Factory;
 
-use tests\TestCase;
+use Hateoas\Tests\TestCase;
 use Hateoas\Factory\SymfonyRouteFactory as TestedSymfonyRouteFactory;
 
-class SymfonyRouteFactory extends TestCase
+class SymfonyRouteFactoryTest extends TestCase
 {
     public function test()
     {

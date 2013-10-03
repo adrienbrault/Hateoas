@@ -1,8 +1,8 @@
 <?php
 
-namespace tests\Hateoas\Serializer\EventSubscriber;
+namespace Hateoas\Tests\Serializer\EventSubscriber;
 
-use tests\TestCase;
+use Hateoas\Tests\TestCase;
 
 abstract class AbstractEventSubscriberTest extends TestCase
 {

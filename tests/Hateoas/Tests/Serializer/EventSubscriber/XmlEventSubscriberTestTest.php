@@ -1,10 +1,10 @@
 <?php
 
-namespace tests\Hateoas\Serializer\EventSubscriber;
+namespace Hateoas\Tests\Serializer\EventSubscriber;
 
 use Hateoas\Serializer\EventSubscriber\XmlEventSubscriber as TestedXmlEventSubscriber;
 
-class XmlEventSubscriber extends AbstractEventSubscriberTest
+class XmlEventSubscriberTest extends AbstractEventSubscriberTest
 {
     protected function createEventSubscriber($serializer, $linksFactory, $embedsFactory)
     {

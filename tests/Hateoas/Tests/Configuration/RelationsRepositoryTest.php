@@ -1,12 +1,12 @@
 <?php
 
-namespace tests\Hateoas\Configuration;
+namespace Hateoas\Tests\Configuration;
 
-use tests\TestCase;
+use Hateoas\Tests\TestCase;
 use Hateoas\Configuration\Relation as Relation_;
 use Hateoas\Configuration\RelationsRepository as TestedRelationsRepository;
 
-class RelationsRepository extends TestCase
+class RelationsRepositoryTest extends TestCase
 {
     public function testEmptyGetRelations()
     {

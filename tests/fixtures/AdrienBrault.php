@@ -1,6 +1,6 @@
 <?php
 
-namespace tests\fixtures;
+namespace Hateoas\Tests\fixtures;
 
 use Hateoas\Configuration\Annotation as Hateoas;
 

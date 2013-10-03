@@ -1,11 +1,11 @@
 <?php
 
-namespace tests\Hateoas\Handler;
+namespace Hateoas\Tests\Handler;
 
-use tests\TestCase;
+use Hateoas\Tests\TestCase;
 use Hateoas\Handler\PropertyPathHandler as TestedPropertyPathHandler;
 
-class PropertyPathHandler extends TestCase
+class PropertyPathHandlerTest extends TestCase
 {
     public function testTransform()
     {

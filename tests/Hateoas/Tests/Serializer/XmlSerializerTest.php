@@ -1,12 +1,12 @@
 <?php
 
-namespace tests\Hateoas\Serializer;
+namespace Hateoas\Tests\Serializer;
 
-use tests\TestCase;
+use Hateoas\Tests\TestCase;
 use Hateoas\Model\Link;
 use Hateoas\Serializer\XmlSerializer as TestedXmlSerializer;
 
-class XmlSerializer extends TestCase
+class XmlSerializerTest extends TestCase
 {
     public function testSerializeLinks()
     {

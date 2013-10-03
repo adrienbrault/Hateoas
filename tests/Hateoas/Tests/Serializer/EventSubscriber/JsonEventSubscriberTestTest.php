@@ -1,10 +1,10 @@
 <?php
 
-namespace tests\Hateoas\Serializer\EventSubscriber;
+namespace Hateoas\Tests\Serializer\EventSubscriber;
 
 use Hateoas\Serializer\EventSubscriber\JsonEventSubscriber as TestedJsonEventSubscriber;
 
-class JsonEventSubscriber extends AbstractEventSubscriberTest
+class JsonEventSubscriberTest extends AbstractEventSubscriberTest
 {
     protected function createEventSubscriber($serializer, $linksFactory, $embedsFactory)
     {

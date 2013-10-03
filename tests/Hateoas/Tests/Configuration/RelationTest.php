@@ -1,11 +1,11 @@
 <?php
 
-namespace tests\Hateoas\Configuration;
+namespace Hateoas\Tests\Configuration;
 
-use tests\TestCase;
+use Hateoas\Tests\TestCase;
 use Hateoas\Configuration\Relation as TestedRelation;
 
-class Relation extends TestCase
+class RelationTest extends TestCase
 {
     public function testConstructor()
     {

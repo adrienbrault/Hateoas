@@ -1,6 +1,6 @@
 <?php
 
-namespace tests\Hateoas;
+namespace Hateoas\Tests;
 
 use Hateoas\Model\Embed;
 use Hateoas\Model\Link;
@@ -9,12 +9,12 @@ use Hateoas\HateoasBuilder as TestedHateoasBuilder;
 use tests\fixtures\AdrienBrault;
 use tests\fixtures\Computer;
 use tests\fixtures\Smartphone;
-use tests\TestCase;
+use Hateoas\Tests\TestCase;
 
 /**
  * Contains functional tests
  */
-class HateoasBuilder extends TestCase
+class HateoasBuilderTest extends TestCase
 {
     public function test()
     {

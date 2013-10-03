@@ -1,6 +1,6 @@
 <?php
 
-namespace tests\fixtures;
+namespace Hateoas\Tests\fixtures;
 
 use JMS\Serializer\Annotation as Serializer;
 

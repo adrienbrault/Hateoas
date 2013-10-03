@@ -1,10 +1,10 @@
 <?php
 
-namespace tests\Hateoas\Configuration\Metadata\Driver;
+namespace Hateoas\Tests\Configuration\Metadata\Driver;
 
 use Hateoas\Configuration\Relation;
 use Metadata\Driver\DriverInterface;
-use tests\TestCase;
+use Hateoas\Tests\TestCase;
 
 abstract class AbstractDriverTest extends TestCase
 {

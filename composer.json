@@ -20,7 +20,8 @@
         "jms/serializer": "~0.13@dev"
     },
     "require-dev": {
-        "atoum/atoum": "dev-master",
+        "hautelook/frankenstein": "0.1.*",
+        "atoum/atoum": "*@dev",
         "symfony/yaml": "~2.0",
         "symfony/routing": "~2.0"
     },

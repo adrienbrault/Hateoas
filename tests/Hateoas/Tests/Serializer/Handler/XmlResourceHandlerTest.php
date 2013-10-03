@@ -1,11 +1,11 @@
 <?php
 
-namespace tests\Hateoas\Serializer\Handler;
+namespace Hateoas\Tests\Serializer\Handler;
 
-use tests\TestCase;
+use Hateoas\Tests\TestCase;
 use Hateoas\Serializer\Handler\XmlResourceHandler as TestedXmlResourceHandler;
 
-class XmlResourceHandler extends TestCase
+class XmlResourceHandlerTest extends TestCase
 {
     public function testSerializeToXml()
     {

@@ -1,12 +1,12 @@
 <?php
 
-namespace tests\Hateoas\Factory;
+namespace Hateoas\Tests\Factory;
 
 use Hateoas\Configuration\Relation;
 use Hateoas\Factory\EmbedsFactory as TestedEmbedsFactory;
-use tests\TestCase;
+use Hateoas\Tests\TestCase;
 
-class EmbedsFactory extends TestCase
+class EmbedsFactoryTest extends TestCase
 {
     public function test()
     {

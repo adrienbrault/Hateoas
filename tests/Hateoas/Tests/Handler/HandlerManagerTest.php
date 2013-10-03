@@ -1,11 +1,11 @@
 <?php
 
-namespace tests\Hateoas\Handler;
+namespace Hateoas\Tests\Handler;
 
-use tests\TestCase;
+use Hateoas\Tests\TestCase;
 use Hateoas\Handler\HandlerManager as TestedHandlerManager;
 
-class HandlerManager extends TestCase
+class HandlerManagerTest extends TestCase
 {
     public function testStringTransform()
     {

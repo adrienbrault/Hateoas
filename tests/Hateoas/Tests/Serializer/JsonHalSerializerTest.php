@@ -1,14 +1,14 @@
 <?php
 
-namespace tests\Hateoas\Serializer;
+namespace Hateoas\Tests\Serializer;
 
 use Hateoas\Model\Embed;
 use Hateoas\Model\Resource;
 use Hateoas\Model\Link;
 use Hateoas\Serializer\JsonHalSerializer as TestedJsonHalSerializer;
-use tests\TestCase;
+use Hateoas\Tests\TestCase;
 
-class JsonHalSerializer extends TestCase
+class JsonHalSerializerTest extends TestCase
 {
     public function testSerializeLinks()
     {
