@@ -12,9 +12,10 @@ class UrlGeneratorRegistryTest extends TestCase
         $defaultUrlGenerator = $this->mockUrlGenerator();
         $registry = new UrlGeneratorRegistry($defaultUrlGenerator);
 
-        $this
-            ->object($registry->get(UrlGeneratorRegistry::DEFAULT_URL_GENERATOR_KEY))
-                ->isEqualTo($defaultUrlGenerator)
+        $this->assertSame(
+            $registry->get(UrlGeneratorRegistry::DEFAULT_URL_GENERATOR_KEY),
+            $defaultUrlGenerator
+        );
             ->object($registry->get())
                 ->isEqualTo($defaultUrlGenerator)
             ->exception(function () use ($registry) {

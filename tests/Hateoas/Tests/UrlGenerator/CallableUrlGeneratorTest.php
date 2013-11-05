@@ -16,22 +16,17 @@ class CallableUrlGeneratorTest extends TestCase
 
         $test = $this;
         $callable = function ($name, $parameters, $absolute) use ($expectedName, $expectedParameters, $expectedResult, $expectedAbsolute, $test) {
-            $test
-                ->string($name)
-                    ->isEqualTo($expectedName)
-                ->array($parameters)
-                    ->isEqualTo($expectedParameters)
-                ->boolean($absolute)
-                    ->isEqualTo($expectedAbsolute)
-            ;
+            $test->assertSame($name, $expectedName);
+            $test->assertSame($parameters, $expectedParameters);
+            $test->assertSame($absolute, $expectedAbsolute);
 
             return $expectedResult;
         };
         $urlGenerator = new CallableUrlGenerator($callable);
 
-        $this
-            ->string($urlGenerator->generate($expectedName, $expectedParameters, $expectedAbsolute))
-                ->isEqualTo($expectedResult)
-        ;
+        $this->assertSame(
+            $urlGenerator->generate($expectedName, $expectedParameters, $expectedAbsolute),
+            $expectedResult
+        );
     }
 }

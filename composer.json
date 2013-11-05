@@ -20,8 +20,7 @@
         "symfony/expression-language": "~2.4@dev"
     },
     "require-dev": {
-        "hautelook/frankenstein": "~0.1",
-        "atoum/atoum": "dev-master",
+        "phpspec/prophecy-phpunit": "~1.0.0",
         "phpunit/phpunit": "~3.7",
         "symfony/yaml": "~2.0",
         "symfony/routing": "~2.0",

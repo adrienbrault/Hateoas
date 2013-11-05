@@ -36,9 +36,9 @@ class HateoasBuilderTest extends TestCase
             ->build();
         $adrienBrault = new AdrienBrault();
 
-        $this
-            ->string($hateoas->serialize($adrienBrault, 'xml'))
-                ->isEqualTo(<<<XML
+        $this->assertSame(
+            $hateoas->serialize($adrienBrault, 'xml'),
+            <<<XML
 <?xml version="1.0" encoding="UTF-8"?>
 <result>
   <first_name><![CDATA[Adrien]]></first_name>
@@ -55,9 +55,10 @@ class HateoasBuilderTest extends TestCase
 </result>
 
 XML
-                )
-            ->string($halHateoas->serialize($adrienBrault, 'xml'))
-                ->isEqualTo(<<<XML
+        );
+        $this->assertSame(
+            $halHateoas->serialize($adrienBrault, 'xml'),
+            <<<XML
 <?xml version="1.0" encoding="UTF-8"?>
 <result href="http://adrienbrault.fr">
   <first_name><![CDATA[Adrien]]></first_name>
@@ -73,14 +74,13 @@ XML
 </result>
 
 XML
-                )
-            ->string($hateoas->serialize($adrienBrault, 'json'))
-                ->isEqualTo(<<<JSON
+        );
+        $this->assertSame(
+            $hateoas->serialize($adrienBrault, 'json'),
+            <<<JSON
 {"first_name":"Adrien","last_name":"Brault","_links":{"self":{"href":"http:\/\/adrienbrault.fr"},"computer":{"href":"http:\/\/www.apple.com\/macbook-pro\/"},"dynamic-relation":{"href":"awesome!!!"}},"_embedded":{"computer":{"name":"MacBook Pro"},"broken-computer":{"name":"Windows Computer"}}}
 JSON
-                )
-
-        ;
+        );
     }
 
     public function testSerializeAdrienBraultWithExclusion()
@@ -93,9 +93,9 @@ JSON
         $context = SerializationContext::create()->setGroups(array('simple'));
         $context2 = clone $context;
 
-        $this
-            ->string($hateoas->serialize($adrienBrault, 'xml', $context))
-                ->isEqualTo(<<<XML
+        $this->assertSame(
+            $hateoas->serialize($adrienBrault, 'xml', $context),
+            <<<XML
 <?xml version="1.0" encoding="UTF-8"?>
 <result>
   <first_name><![CDATA[Adrien]]></first_name>
@@ -105,9 +105,10 @@ JSON
 </result>
 
 XML
-                )
-            ->string($hateoas->serialize($fakeAdrienBrault, 'xml', $context2))
-                ->isEqualTo(<<<XML
+        );
+        $this->assertSame(
+            $hateoas->serialize($fakeAdrienBrault, 'xml', $context2),
+            <<<XML
 <?xml version="1.0" encoding="UTF-8"?>
 <result>
   <first_name><![CDATA[John]]></first_name>
@@ -116,8 +117,7 @@ XML
 </result>
 
 XML
-                )
-        ;
+        );
     }
 
     public function testAlternativeUrlGenerator()
@@ -131,17 +131,16 @@ XML
             ->build()
         ;
 
-        $this
-            ->string($hateoas->serialize(new WithAlternativeRouter(), 'xml'))
-            ->isEqualTo(<<<XML
+        $this->assertSame(
+            $hateoas->serialize(new WithAlternativeRouter(), 'xml'),
+            <<<XML
 <?xml version="1.0" encoding="UTF-8"?>
 <result>
   <link rel="search" href="/search?query=hello"/>
 </result>
 
 XML
-            )
-        ;
+        );
     }
 
     public function testSerializeInlineJson()
@@ -154,21 +153,19 @@ XML
 
         $hateoas = HateoasBuilder::buildHateoas();
 
-        $this
-            ->string($hateoas->serialize($foo1, 'json'))
-                ->isEqualTo(
-                    '{'.
-                        '"_links":{'.
-                            '"self3":{"href":"foo3"},'.
-                            '"self2":{"href":"foo2"},'.
-                            '"self1":{"href":"foo1"}},'.
-                        '"_embedded":{'.
-                            '"self3":"foo3",'.
-                            '"self2":"foo2",'.
-                            '"self1":"foo1"'.
-                        '}'.
-                    '}'
-                )
-        ;
+        $this->assertSame(
+            $hateoas->serialize($foo1, 'json'),
+            '{'.
+                '"_links":{'.
+                    '"self3":{"href":"foo3"},'.
+                    '"self2":{"href":"foo2"},'.
+                    '"self1":{"href":"foo1"}},'.
+                '"_embedded":{'.
+                    '"self3":"foo3",'.
+                    '"self2":"foo2",'.
+                    '"self1":"foo1"'.
+                '}'.
+            '}'
+        );
     }
 }
