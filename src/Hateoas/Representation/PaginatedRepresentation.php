@@ -59,6 +59,7 @@ class PaginatedRepresentation extends RouteAwareRepresentation
      * @var int
      *
      * @Serializer\Expose
+     * @Serializer\Groups({"Default", "Hateoas"})
      * @Serializer\XmlAttribute
      */
     private $page;
@@ -67,6 +68,7 @@ class PaginatedRepresentation extends RouteAwareRepresentation
      * @var int
      *
      * @Serializer\Expose
+     * @Serializer\Groups({"Default", "Hateoas"})
      * @Serializer\XmlAttribute
      */
     private $limit;
@@ -75,6 +77,7 @@ class PaginatedRepresentation extends RouteAwareRepresentation
      * @var int
      *
      * @Serializer\Expose
+     * @Serializer\Groups({"Default", "Hateoas"})
      * @Serializer\XmlAttribute
      */
     private $pages;

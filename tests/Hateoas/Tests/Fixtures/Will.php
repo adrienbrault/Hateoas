@@ -13,8 +13,14 @@ use Hateoas\Configuration\Annotation as Hateoas;
  */
 class Will
 {
+    /**
+     * @Serializer\Groups({"Default", "simple"})
+     */
     private $id;
 
+    /**
+     * @Serializer\Groups({"Default", "simple"})
+     */
     private $post;
 
     public function __construct($id, Post $post = null)

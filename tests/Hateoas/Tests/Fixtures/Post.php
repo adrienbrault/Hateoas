@@ -9,6 +9,9 @@ use Hateoas\Configuration\Annotation as Hateoas;
  */
 class Post
 {
+    /**
+     * @Serializer\Groups({"Default", "simple"})
+     */
     private $id;
 
     public function __construct($id)

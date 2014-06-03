@@ -24,6 +24,7 @@ class RouteAwareRepresentation
     /**
      * @Serializer\Inline
      * @Serializer\Expose
+     * @Serializer\Groups({"Default", "Hateoas"})
      */
     private $inline;
 

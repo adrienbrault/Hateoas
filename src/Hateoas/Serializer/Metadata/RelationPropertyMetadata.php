@@ -17,6 +17,10 @@ class RelationPropertyMetadata extends VirtualPropertyMetadata
         }
 
         $this->groups = $exclusion->getGroups();
+        if (null !== $this->groups) {
+            $this->groups = array_merge($this->groups, array('Hateoas'));
+        }
+
         $this->sinceVersion = $exclusion->getSinceVersion();
         $this->untilVersion = $exclusion->getUntilVersion();
         $this->maxDepth = $exclusion->getMaxDepth();

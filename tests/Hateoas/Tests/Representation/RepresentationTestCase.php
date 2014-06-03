@@ -6,6 +6,7 @@ use Hateoas\HateoasBuilder;
 use Hateoas\Serializer\XmlHalSerializer;
 use Hateoas\Tests\TestCase;
 use Hateoas\UrlGenerator\CallableUrlGenerator;
+use JMS\Serializer\SerializationContext;
 
 abstract class RepresentationTestCase extends TestCase
 {
@@ -37,5 +38,19 @@ abstract class RepresentationTestCase extends TestCase
             ->setXmlSerializer(new XmlHalSerializer())
             ->build()
         ;
+    }
+
+    public function getHateoasGroupsData()
+    {
+        return [
+            [['simple', 'Default']],
+            [['simple', 'Hateoas']],
+            [['simple', 'Hateoas', 'Default']],
+        ];
+    }
+
+    public function createContextWithGroups(array $groups)
+    {
+        return SerializationContext::create()->setGroups($groups);
     }
 }

@@ -19,11 +19,13 @@ class VndErrorRepresentation
 {
     /**
      * @Serializer\Expose
+     * @Serializer\Groups({"Default", "Hateoas"})
      */
     private $message;
 
     /**
      * @Serializer\Expose
+     * @Serializer\Groups({"Default", "Hateoas"})
      * @Serializer\XmlAttribute
      */
     private $logref;

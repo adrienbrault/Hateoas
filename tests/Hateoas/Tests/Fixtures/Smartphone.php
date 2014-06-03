@@ -9,6 +9,9 @@ use JMS\Serializer\Annotation as Serializer;
  */
 class Smartphone
 {
+    /**
+     * @Serializer\Groups({"Default", "simple"})
+     */
     private $name;
 
     public function __construct($name)

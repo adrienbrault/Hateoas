@@ -16,6 +16,7 @@ class Foo1
 {
     /**
      * @Serializer\Inline
+     * @Serializer\Groups({"Default", "simple"})
      */
     public $inline;
 }
