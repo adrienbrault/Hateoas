@@ -57,7 +57,9 @@ class ExpressionEvaluator
         $key = $expression;
 
         if (!array_key_exists($key, $this->cache)) {
-            if (!preg_match(self::EXPRESSION_REGEX, $expression, $matches)) {
+            if (0 !== strpos($expression, 'expr(')
+                || !preg_match(self::EXPRESSION_REGEX, $expression, $matches)
+            ) {
                 $this->cache[$key] = false;
             } else {
                 $expression = $matches['expression'];
@@ -67,13 +69,14 @@ class ExpressionEvaluator
             }
         }
 
-        if (false !== $this->cache[$key]) {
+        $cachedExpression = $this->cache[$key];
+        if (false !== $cachedExpression) {
             if (!isset($context)) {
                 $context = $this->context;
                 $context['object'] = $data;
             }
 
-            return $this->expressionLanguage->evaluate($this->cache[$key], $context);
+            return $this->expressionLanguage->evaluate($cachedExpression, $context);
         }
 
         return $expression;
@@ -81,6 +84,10 @@ class ExpressionEvaluator
 
     public function evaluateArray(array $array, $data)
     {
+        if (empty($array)) {
+            return $array;
+        }
+
         $newArray = array();
         foreach ($array as $key => $value) {
             $key   = $this->evaluate($key, $data);
