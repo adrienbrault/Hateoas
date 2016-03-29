@@ -59,6 +59,10 @@ class EmbeddedsFactory
             $data = $this->expressionEvaluator->evaluate($relation->getEmbedded()->getContent(), $object);
             $xmlElementName = $this->expressionEvaluator->evaluate($relation->getEmbedded()->getXmlElementName(), $object);
 
+            if (is_object($data) && $context->isVisiting($data)) {
+                continue;
+            }
+
             $embeddeds[] = new Embedded($rel, $data, $xmlElementName);
         }
 
